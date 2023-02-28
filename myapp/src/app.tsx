@@ -11,6 +11,7 @@ import defaultSettings from '../config/defaultSettings';
 
 const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
+const registerPath = '/user/register';
 
 /** 获取用户信息比较慢的时候会展示一个 loading */
 export const initialStateConfig = {
@@ -62,8 +63,9 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
     onPageChange: () => {
       const { location } = history;
       // 如果没有登录，重定向到 login
-      if (!initialState?.currentUser && location.pathname !== loginPath) {
+      if ((!initialState?.currentUser && location.pathname !== loginPath)&&location.pathname !== registerPath) {
         history.push(loginPath);
+        console.log(location.pathname)
       }
     },
     links: isDev

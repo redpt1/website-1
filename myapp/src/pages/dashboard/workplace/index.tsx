@@ -9,6 +9,7 @@ import EditableLinkGroup from './components/EditableLinkGroup';
 import styles from './style.less';
 import type { ActivitiesType, CurrentUser } from './data.d';
 import { queryProjectNotice, queryActivities, fakeChartData } from './service';
+import React from "react";
 
 const links = [
   {
@@ -52,6 +53,7 @@ const PageHeaderContent: FC<{ currentUser: Partial<CurrentUser> }> = ({ currentU
           早安，
           {currentUser.name}
           ，祝你开心每一天！
+          <Link to="/user/register">register</Link>
         </div>
         <div>
           {currentUser.title} |{currentUser.group}
